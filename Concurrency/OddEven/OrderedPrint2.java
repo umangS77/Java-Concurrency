@@ -30,7 +30,7 @@ public class OrderedPrint2 {
         while (true) {
             lock.lock();
             try {
-                while (num <= MAX && (num-1) % maxThreads == id) {
+                while (num <= MAX && (num-1) % maxThreads != id) {
                     condition.awaitUninterruptibly();
                 }
 
